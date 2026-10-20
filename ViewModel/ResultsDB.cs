@@ -51,7 +51,8 @@ namespace ViewModel
 
         protected override void CreateUpdatedSQL(BaseEntity entity, OleDbCommand cmd)
         {
-            throw new NotImplementedException();
+            Results re = entity as Results;
+
         }
     }
 }

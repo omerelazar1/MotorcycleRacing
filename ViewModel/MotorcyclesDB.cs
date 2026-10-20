@@ -56,9 +56,14 @@ namespace ViewModel
             Motorcycles m = entity as Motorcycles;
             if (m != null)
             {
-                string sqlStr = $"UPDATE Motorcycles SET RiderID=@mRiderID, Brand=@mBrand, Model=@mModel, Year=@mYear, NumberofOwners=@mNumberofOwners WHERE ID=@id";
+                string sqlStr = $"UPDATE Motorcycles SET RiderID=@mRiderID, Brand=@mBrand, Model=@mModel, Year=@mYear, NumberOfOwners=@mNumberOfOwners WHERE ID=@id";
                 command.CommandText = sqlStr;
                 command.Parameters.Add(new OleDbParameter("@mRiderID", m.RiderID.Id));
+                command.Parameters.Add(new OleDbParameter("@mBrand", m.Brand));
+                command.Parameters.Add(new OleDbParameter("@mModel", m.Model));
+                command.Parameters.Add(new OleDbParameter("@mYear", m.Year));
+                command.Parameters.Add(new OleDbParameter("@mNumberOfOwners", m.NumberOfOwners));
+                command.Parameters.Add(new OleDbParameter("@mID", m.Id));
             }
         }
     }

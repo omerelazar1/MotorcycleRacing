@@ -54,7 +54,10 @@ namespace ViewModel
             if (b != null)
             {
                 string sqlStr = $"UPDATE Brand SET BrandName=@bName,Description=@bDescription WHERE ID=@id";
-
+                command.CommandText = sqlStr;
+                command.Parameters.Add(new OleDbParameter("@bBrandName", b.BrandName));
+                command.Parameters.Add(new OleDbParameter("@bDescription", b.BrandDescription));
+                command.Parameters.Add(new OleDbParameter("@bId", b.Id));
             }
         }
     }
